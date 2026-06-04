@@ -1,0 +1,43 @@
+ body{
+            background-color:bisque;
+        }
+        .data {
+            display: flex;
+            row-gap: 11px;
+            max-width: 270px;
+            flex-direction: column;
+            margin: 0px auto;
+            padding-top: 10px;
+            height: 590px;
+            width: 275px;
+            padding: 30px;
+            background-color: white;
+        }
+
+        #btnAddition {
+            border-radius: 10px;
+        }
+
+        #btnSubtract {
+            border-radius: 10px;
+        }
+
+        #btnMultiplication {
+            border-radius: 10px;
+        }
+
+        #btnDivision {
+            border-radius: 10px;
+        }
+
+        #btnRemainder {
+            border-radius: 10px;
+        }
+
+        #btnNumber {
+            border-radius: 10px;
+        }
+
+        #btnMulti {
+            border-radius: 10px;
+        }
