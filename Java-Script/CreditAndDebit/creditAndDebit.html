@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bank Balance</title>
+    <style>
+        #btnCredit {
+            background-color: green;
+            border-color: green;
+            border-radius: 5px;
+        }
+
+        #btnDebit {
+            background-color: red;
+            border-color: red;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        availableBalance=0;
+        function onClickCredit() {
+            debugger;
+            var Credit = Number(document.getElementById("amount").value);
+           availableBalance= availableBalance+Credit;
+             var total=Credit+" Credited amount Balance :"+ availableBalance;
+            alert(availableBalance);
+            alert(total);
+        }
+        function onClickCDebit() {
+            debugger;
+          
+            var Debit = Number(document.getElementById("amount").value);
+            if(Debit>availableBalance){
+                alert("Insufficent Balance")
+            }
+            else{
+                availableBalance= availableBalance-Debit;
+             var Value=Debit+" Debited amount Balance :"+ availableBalance;
+            alert(availableBalance);
+            alert(Value);
+            }
+            
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Bank Balance</h1>
+    <label for="lblAmount">Amount</label>
+    <input id="amount" type="number">
+    <br>
+    <button id="btnCredit" onclick="onClickCredit()">Credit</button>
+    <button id="btnDebit" onclick="onClickCDebit()">Debit</button>
+</body>
+
+</html>
