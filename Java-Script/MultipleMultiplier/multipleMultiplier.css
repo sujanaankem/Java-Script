@@ -1,0 +1,11 @@
+ #btnMultiply {
+            border-radius: 10px;
+            background-color: cornsilk;
+            border-color: cornsilk;
+        }
+
+        #btnDivide {
+            border-radius: 10px;
+            background-color: bisque;
+            border-color: bisque;
+        }
