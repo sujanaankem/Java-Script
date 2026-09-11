@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Phone Verification</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e0f2fe, #f8fafc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 360px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 16px;
+            color: #1f2937;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #374151;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        #otpDisplay {
+            margin-top: 14px;
+            text-align: center;
+            font-weight: bold;
+            color: #0f766e;
+            min-height: 24px;
+        }
+
+        #showinput {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #showinput.visible {
+            display: block;
+        }
+    </style>
+
+    <script defer>
+        let showInput = false;
+
+        function generateOTP() {
+            debugger
+            const phoneInputs = Number(document.getElementById("phoneInput").value);
+            const storedData = JSON.parse(localStorage.getItem("users"));
+
+            for (i = 0; i < storedData.length; i++) {
+                checknumber = storedData[i].phone
+                if (phoneInputs == checknumber) {
+                    alert("Phone number registered!");
+                    const otp = Math.floor(100000 + Math.random() * 900000);
+                    document.getElementById("otpDisplay").innerText = "Your OTP is: " + otp;
+                    showInput = true;
+                    document.getElementById("showinput").classList.add("visible");
+                    break
+                }
+            }
+            setTimeout(function () {
+                document.getElementById("otpDisplay").innerText = "";
+                showInput = false;
+            }, 20000);
+
+            if (phoneInputs != checknumber) {
+                document.getElementById("otpDisplay").innerHTML = `Your phone number is not Registered.`;
+                showInput = false;
+                document.getElementById("showinput").classList.remove("visible");
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="card">
+        <h2>Phone Verification</h2>
+        <label>Enter Phone Number:</label>
+        <input id="phoneInput" type="number" placeholder="Enter your phone number"
+            oninput="if(this.value.length > 10) this.value = this.value.slice(0, 10);">
+        <button onclick="generateOTP()">Get OTP</button>
+        <p id="otpDisplay"></p>
+
+        <div id="showinput">
+            <input>
+            <button>submit</button>
+        </div>
+    </div>
+</body>
+
+</html>
