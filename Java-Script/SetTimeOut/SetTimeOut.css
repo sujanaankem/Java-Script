@@ -1,0 +1,18 @@
+body {
+    text-align: center;
+    font-family: Arial;
+    margin-top: 100px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#message {
+    font-size: 20px;
+    color: green;
+}
