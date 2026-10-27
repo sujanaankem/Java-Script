@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sudoku Game</title>
+    <link rel="stylesheet" href="Sudoku.css">
+</head>
+
+<body>
+
+    <h1>Sudoku</h1>
+
+    <select id="level">
+        <option value="easy">Easy - 4 × 4</option>
+        <option value="hard">Hard - 6 × 6</option>
+        <option value="veryhard">Very Hard - 9 × 9</option>
+    </select>
+
+    <p id="start-prompt">Choose a level, then start your game.</p>
+    <button id="start-game-button" onclick="startGame()">Start Game</button>
+
+    <div id="sudoku"></div>
+
+    <p id="message" hidden></p>
+
+    <button id="new-game-button" onclick="newGame()" hidden>New Game</button>
+
+    <div id="win-overlay" class="win-overlay" role="presentation" hidden>
+        <section class="win-modal" role="dialog" aria-modal="true" aria-labelledby="win-title">
+            <div id="win-banner" class="win-banner" role="status" aria-live="polite"></div>
+            <button id="win-new-game-button" class="win-new-game-button" onclick="newGame()">New Game</button>
+        </section>
+    </div>
+
+    <script src="Sudoku.js"></script>
+
+</body>
+
+</html>
